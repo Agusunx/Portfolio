@@ -2,42 +2,6 @@
 //  AGUSTÍN NAVARRO — Portfolio script.js
 // ==========================================
 
-// ---- CURSOR PERSONALIZADO ----
-const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursorFollower');
-
-if (cursor && follower && window.matchMedia('(hover: hover)').matches) {
-    let mx = 0, my = 0, fx = 0, fy = 0;
-
-    document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        cursor.style.left = mx + 'px';
-        cursor.style.top  = my + 'px';
-    });
-
-    (function animFollower() {
-        fx += (mx - fx) * 0.15;
-        fy += (my - fy) * 0.15;
-        follower.style.left = fx + 'px';
-        follower.style.top  = fy + 'px';
-        requestAnimationFrame(animFollower);
-    })();
-
-    // Efecto al pasar sobre links/buttons
-    document.querySelectorAll('a, button, .pcard, .cert, .si, .stat, .cl').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-            cursor.style.background = 'transparent';
-            cursor.style.border = '1px solid #c8f135';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursor.style.background = '#c8f135';
-            cursor.style.border = 'none';
-        });
-    });
-}
-
 // ---- NAVBAR SCROLL ----
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
