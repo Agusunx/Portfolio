@@ -7,7 +7,7 @@
     <meta name="description" content="Portfolio de Agustín Navarro, desarrollador junior. HTML, CSS, JavaScript, React, Python, Node.js.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +22,10 @@
             <li><a href="#sobre-mi">03 Sobre mí</a></li>
             <li><a href="#contacto">04 Contacto</a></li>
         </ul>
-        <a href="https://github.com/agusunx" target="_blank" class="nav-github">GitHub ↗</a>
+        <div class="nav-right">
+            <a href="CV_Agustin_Navarro.pdf" download class="btn-cv">↓ Descargar CV</a>
+            <a href="https://github.com/agusunx" target="_blank" class="nav-github">GitHub ↗</a>
+        </div>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
@@ -31,6 +34,7 @@
         <a href="#stack" onclick="closeMobileMenu()"><em>02</em> Stack</a>
         <a href="#sobre-mi" onclick="closeMobileMenu()"><em>03</em> Sobre mí</a>
         <a href="#contacto" onclick="closeMobileMenu()"><em>04</em> Contacto</a>
+        <a href="CV_Agustin_Navarro.pdf" download class="mm-cv">↓ Descargar CV</a>
     </div>
 
     <!-- HERO -->
@@ -47,12 +51,12 @@
                 <span class="rl">Agustín</span>
                 <span class="rl">Navarro<span class="accent">.</span></span>
             </h1>
-            <p class="hero-role rf">Junior Software Developer</p>
+            <p class="hero-role rf"><span id="typewriter">Junior Software Developer</span><span class="tw-cursor">|</span></p>
             <p class="hero-bio rf">Construyo interfaces <strong>funcionales y atractivas</strong>. Técnico en Programación por UNAHUR, con experiencia en proyectos reales de frontend y full stack.</p>
             <div class="hero-ctas rf">
                 <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+                <a href="CV_Agustin_Navarro.pdf" download class="btn-ghost">↓ Descargar CV</a>
                 <a href="https://github.com/agusunx" target="_blank" class="btn-ghost">GitHub ↗</a>
-                <a href="mailto:agusunx@outlook.es" class="btn-ghost">Email ↗</a>
             </div>
         </div>
         <div class="scroll-hint">
@@ -71,56 +75,76 @@
             </div>
         </div>
 
-        <div class="projects-grid">
+        <div class="projects-list">
 
+            <!-- 1. TalentoTechss -->
             <article class="pcard reveal">
                 <div class="pcard-img">
-                    <img src="capturatech2.png" alt="TalentoTechss" loading="lazy">
+                    <img src="capturatech2.png" alt="TalentoTechss E-commerce" loading="lazy">
                     <div class="pcard-over">
                         <a href="https://agusunx.github.io/TalentoTechss/index.html" target="_blank" class="btn-primary">Ver live ↗</a>
-                        <a href="https://github.com/Agusunx/TalentoTechss-main" target="_blank" class="btn-ghost-sm">Código</a>
+                        <a href="https://github.com/Agusunx/TalentoTechss-main" target="_blank" class="btn-ghost-sm">Código ↗</a>
                     </div>
                 </div>
                 <div class="pcard-body">
-                    <div class="pcard-meta"><span class="ptype">E-Commerce</span><span class="pyear">2024</span></div>
+                    <div class="pcard-meta">
+                        <span class="ptype">E-Commerce</span>
+                        <span class="pyear">2026</span>
+                    </div>
                     <h3>TalentoTechss</h3>
-                    <p>Plataforma de ventas para terapias holísticas. Carrito dinámico con localStorage, catálogo de productos y formulario de contacto integrado con Formspree.</p>
-                    <div class="ptags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
+                    <p>Plataforma de ventas para terapias holísticas con carrito dinámico usando localStorage, catálogo completo de productos y formulario de contacto funcional. Proyecto desarrollado en el programa <strong>Talento Tech</strong> del Gobierno de la Ciudad de Buenos Aires.</p>
+                    <div class="ptags">
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span><span>Formspree</span>
+                    </div>
                 </div>
             </article>
 
-            <article class="pcard reveal">
-                <div class="pcard-img">
-                    <img src="capturasunx.png" alt="SerieSunx" loading="lazy">
+            <!-- 2. SerieSunx -->
+            <article class="pcard pcard-alt reveal">
+                <div class="pcard-img pcard-img-streaming">
+                    <img src="capturasunx.png" alt="SerieSunx Streaming" loading="lazy">
                     <div class="pcard-over">
                         <a href="https://agusunx.github.io/SerieSunx/" target="_blank" class="btn-primary">Ver live ↗</a>
-                        <a href="https://github.com/Agusunx/SerieSunx" target="_blank" class="btn-ghost-sm">Código</a>
+                        <a href="https://github.com/Agusunx/SerieSunx" target="_blank" class="btn-ghost-sm">Código ↗</a>
                     </div>
                 </div>
                 <div class="pcard-body">
-                    <div class="pcard-meta"><span class="ptype">UI / UX</span><span class="pyear">2024</span></div>
+                    <div class="pcard-meta">
+                        <span class="ptype">UI / UX · Streaming</span>
+                        <span class="pyear">2026</span>
+                    </div>
                     <h3>SerieSunx</h3>
-                    <p>Prototipo de plataforma de streaming con interfaz inmersiva, reproducción HTML5, biblioteca de contenido y navegación fluida entre títulos.</p>
-                    <div class="ptags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Video API</span></div>
+                    <p>Prototipo de plataforma de streaming personal con interfaz inmersiva estilo Netflix. Biblioteca de contenido organizada por categorías, reproductor HTML5 integrado y diseño 100% responsivo.</p>
+                    <div class="ptags">
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Video API</span>
+                    </div>
                 </div>
             </article>
 
-            <article class="pcard reveal">
-                <div class="pcard-img">
+            <!-- 3. CodeRobotik -->
+            <article class="pcard pcard-alt2 reveal">
+                <div class="pcard-img pcard-img-robotik">
                     <img src="roboticpag.png" alt="CodeRobotik" loading="lazy">
-                    <div class="pcard-over">
-                        <a href="https://github.com/agusunx" target="_blank" class="btn-primary">Ver código ↗</a>
+                    <div class="pcard-over pcard-over-info">
+                        <span class="over-badge">📸 Proyecto académico</span>
                     </div>
                 </div>
                 <div class="pcard-body">
-                    <div class="pcard-meta"><span class="ptype">Plataforma Educativa</span><span class="pyear">2024</span></div>
+                    <div class="pcard-meta">
+                        <span class="ptype">Plataforma Educativa</span>
+                        <span class="pyear">2026</span>
+                    </div>
                     <h3>CodeRobotik</h3>
-                    <p>Sistema de gestión para un centro de robótica educativa. Login con roles diferenciados, paneles para alumnos y docentes, y gestión de seminarios.</p>
-                    <div class="ptags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Roles</span></div>
+                    <p>Sistema de gestión para un centro de robótica educativa. Incluye login con roles diferenciados, paneles para alumnos y docentes, y módulo de seminarios. Proyecto desarrollado en <strong>Talento Tech — Gobierno de la Ciudad de Buenos Aires</strong>.</p>
+                    <div class="ptags">
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Talento Tech</span>
+                    </div>
+                    <p class="pcard-note">📌 Proyecto académico — código no público.</p>
                 </div>
             </article>
 
-            <article class="pcard pcard-featured reveal">
+            <!-- 4. UnaHur Anti-Social Net -->
+            <article class="pcard reveal">
                 <div class="pcard-img">
                     <img src="redsocial.png" alt="UnaHur Anti-Social Net" loading="lazy">
                     <div class="pcard-over">
@@ -128,10 +152,90 @@
                     </div>
                 </div>
                 <div class="pcard-body">
-                    <div class="pcard-meta"><span class="ptype">Full Stack · Grupal</span><span class="pyear">2024</span></div>
+                    <div class="pcard-meta">
+                        <span class="ptype ptype-full">Full Stack · Grupal</span>
+                        <span class="pyear">2026</span>
+                    </div>
                     <h3>UnaHur Anti-Social Net</h3>
-                    <p>SPA de red social desarrollada en equipo. Frontend React con routing y gestión de estado; backend Node.js/Express con CRUD completo y autenticación.</p>
-                    <div class="ptags"><span>React.js</span><span>React Router</span><span>Node.js</span><span>Express</span><span>API REST</span></div>
+                    <p>SPA de red social desarrollada en equipo. Frontend con React, routing y gestión de estado; backend Node.js/Express con CRUD completo y autenticación de usuarios. Proyecto universitario UNAHUR.</p>
+                    <div class="ptags">
+                        <span>React.js</span><span>React Router</span><span>Node.js</span><span>Express</span><span>API REST</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5. Conectando Almas -->
+            <article class="pcard pcard-ai reveal">
+                <div class="pcard-img">
+                    <img src="fondo-conectando.png" alt="Conectando Almas" loading="lazy" style="object-position:center">
+                    <div class="pcard-over">
+                        <a href="https://www.instagram.com/conectandoalmas_medium" target="_blank" class="btn-primary">Ver en vivo ↗</a>
+                    </div>
+                </div>
+                <div class="pcard-body">
+                    <div class="pcard-meta">
+                        <span class="ptype">Landing · Chatbot IA</span>
+                        <span class="pyear">2026</span>
+                    </div>
+                    <h3>Conectando Almas</h3>
+                    <p>Sitio web en producción para una médium y vidente. Incluye un <strong>chatbot inteligente con IA</strong> integrado directamente en la página, que responde consultas sobre servicios, precios y formas de pago por país (MercadoPago, Prex). Diseño místico con partículas animadas y glassmorphism.</p>
+                    <div class="ptags">
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>IA / Chatbot</span><span>En producción</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6. AI Bot (standalone) -->
+            <article class="pcard pcard-alt reveal">
+                <div class="pcard-img pcard-img-bot">
+                    <div class="pcard-placeholder">
+                        <div class="bot-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M7 12h2M15 12h2M9 16h6"/></svg>
+                        </div>
+                        <span>Asistente con IA</span>
+                    </div>
+                    <div class="pcard-over">
+                        <a href="https://github.com/agusunx" target="_blank" class="btn-primary">Ver en GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="pcard-body">
+                    <div class="pcard-meta">
+                        <span class="ptype">Inteligencia Artificial</span>
+                        <span class="pyear">2026</span>
+                    </div>
+                    <h3>Asistente Inteligente con IA</h3>
+                    <p>Bot conversacional desarrollado con IA para responder preguntas específicas de un negocio, integrado como widget en sitios web. Maneja contexto de conversación, reconoce intenciones del usuario y escala consultas al operador humano cuando es necesario.</p>
+                    <div class="ptags">
+                        <span>JavaScript</span><span>IA / LLM</span><span>API Integration</span><span>Chatbot</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 7. Gestión Académica (WIP) -->
+            <article class="pcard pcard-wip reveal">
+                <div class="pcard-img pcard-img-gestion">
+                    <div class="pcard-placeholder pcard-placeholder-wip">
+                        <div class="wip-badge">En desarrollo</div>
+                        <div class="bot-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <span>Sistema de Gestión Académica</span>
+                    </div>
+                    <div class="pcard-over pcard-over-info">
+                        <span class="over-badge">🚀 Próximamente</span>
+                    </div>
+                </div>
+                <div class="pcard-body">
+                    <div class="pcard-meta">
+                        <span class="ptype ptype-full">Full Stack · IA · En desarrollo</span>
+                        <span class="pyear">2026</span>
+                    </div>
+                    <h3>Sistema de Gestión Académica</h3>
+                    <p>Plataforma fullstack para gestión educativa con <strong>inteligencia artificial integrada</strong>. Dashboard administrativo para seguimiento de alumnos, materias y calificaciones. IA para análisis y recomendaciones académicas. <em>(Más detalles próximamente)</em></p>
+                    <div class="ptags">
+                        <span>React.js</span><span>Node.js</span><span>MySQL</span><span>Vite</span><span>IA</span>
+                    </div>
+                    <p class="pcard-note">🔧 En desarrollo activo — más info muy pronto.</p>
                 </div>
             </article>
 
@@ -157,7 +261,7 @@
                     <div class="iitem"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
                     <div class="iitem"><i class="devicon-react-original colored"></i><span>React</span></div>
                     <div class="iitem"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
-                    <div class="iitem"><i class="devicon-sass-plain colored"></i><span>Sass</span></div>
+                    <div class="iitem"><i class="devicon-vitejs-plain colored"></i><span>Vite</span></div>
                 </div>
             </div>
             <div class="stack-col reveal">
@@ -166,9 +270,9 @@
                     <div class="iitem"><i class="devicon-python-plain colored"></i><span>Python</span></div>
                     <div class="iitem"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
                     <div class="iitem"><i class="devicon-express-original"></i><span>Express</span></div>
-                    <div class="iitem"><i class="devicon-mysql-plain colored"></i><span>SQL</span></div>
-                    <div class="iitem"><i class="devicon-json-plain"></i><span>API REST</span></div>
+                    <div class="iitem"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
                     <div class="iitem"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+                    <div class="iitem"><i class="devicon-json-plain"></i><span>API REST</span></div>
                 </div>
             </div>
             <div class="stack-col reveal">
@@ -184,17 +288,66 @@
             </div>
         </div>
 
+        <!-- Certificaciones -->
         <div class="certs-section reveal">
             <h3 class="certs-title">Certificaciones</h3>
             <div class="certs-grid">
-                <div class="cert"><span class="cert-org">Cisco Networking Academy</span><span class="cert-name">Introducción a la Ciberseguridad</span></div>
-                <div class="cert"><span class="cert-org">Kaggle</span><span class="cert-name">Intro to SQL</span></div>
-                <div class="cert"><span class="cert-org">EF SET</span><span class="cert-name">Certificado de Inglés</span></div>
-                <div class="cert"><span class="cert-org">ScrumStudy</span><span class="cert-name">Scrum Fundamentals Certified (SFC™)</span></div>
-                <div class="cert"><span class="cert-org">Amazon — AWS Educate</span><span class="cert-name">Introduction to Cloud 101</span></div>
-                <div class="cert"><span class="cert-org">Talento Tech — Programa Nacional</span><span class="cert-name">Frontend JavaScript</span></div>
-                <div class="cert"><span class="cert-org">UNAHUR</span><span class="cert-name">Python Inicial · Inteligencia Artificial</span></div>
-                <div class="cert"><span class="cert-org">Platzi</span><span class="cert-name">Curso Básico de Programación</span></div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">Cisco Networking Academy</span>
+                        <span class="cert-name">Introducción a la Ciberseguridad</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/kaggle.com" alt="Kaggle" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">Kaggle</span>
+                        <span class="cert-name">Intro to SQL</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/efset.org" alt="EF SET" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">EF SET</span>
+                        <span class="cert-name">Certificado de Inglés</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/scrumstudy.com" alt="ScrumStudy" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">ScrumStudy</span>
+                        <span class="cert-name">Scrum Fundamentals Certified (SFC™)</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/aws.amazon.com" alt="AWS" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">Amazon — AWS Educate</span>
+                        <span class="cert-name">Introduction to Cloud 101</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/buenosaires.gob.ar" alt="Talento Tech" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">Talento Tech — Gob. Ciudad de Bs. As.</span>
+                        <span class="cert-name">Frontend JavaScript</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/unahur.edu.ar" alt="UNAHUR" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">UNAHUR</span>
+                        <span class="cert-name">Python Inicial · Inteligencia Artificial</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <img src="https://logo.clearbit.com/platzi.com" alt="Platzi" class="cert-logo" onerror="this.style.display='none'">
+                    <div class="cert-text">
+                        <span class="cert-org">Platzi</span>
+                        <span class="cert-name">Curso Básico de Programación</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -212,19 +365,19 @@
         <div class="about-grid">
             <div class="about-text reveal">
                 <p>Soy <strong>Agustín Navarro</strong>, desarrollador junior de Buenos Aires con <strong>18 de 19 materias aprobadas</strong> en la Tecnicatura en Programación de <strong>UNAHUR</strong>.</p>
-                <p>Me especializo en el <strong>frontend</strong> — crear interfaces limpias, funcionales y pensadas en el usuario. Construí proyectos reales que van desde e-commerces hasta aplicaciones full stack con React y Node.js.</p>
-                <p>Me desempeñé como <strong>alumno colaborador en UNAHUR</strong>, apoyando a estudiantes en lógica de programación y estructuras de datos. Me gusta explicar lo que entiendo.</p>
-                <p>Busco mi primera oportunidad profesional en IT para seguir creciendo en cualquier rol relacionado a programación.</p>
+                <p>Me especializo en el <strong>frontend</strong> — crear interfaces limpias, funcionales y pensadas en el usuario. Construí proyectos reales que van desde e-commerces y plataformas de streaming hasta aplicaciones full stack con React, Node.js y MySQL.</p>
+                <p>Me desempeñé como <strong>alumno colaborador en UNAHUR</strong>, apoyando a compañeros en lógica de programación y estructuras de datos.</p>
+                <p>Busco mi primera oportunidad profesional en IT para seguir creciendo en cualquier rol relacionado al desarrollo de software.</p>
                 <div class="about-ctas">
-                    <a href="mailto:agusunx@outlook.es" class="btn-primary">Escribime</a>
+                    <a href="CV_Agustin_Navarro.pdf" download class="btn-primary">↓ Descargar CV</a>
                     <a href="https://github.com/agusunx" target="_blank" class="btn-ghost">GitHub ↗</a>
                 </div>
             </div>
             <div class="about-stats">
-                <div class="stat reveal"><span class="stat-n">4</span><span class="stat-l">Proyectos terminados</span></div>
+                <div class="stat reveal"><span class="stat-n">7</span><span class="stat-l">Proyectos</span></div>
                 <div class="stat reveal"><span class="stat-n">8+</span><span class="stat-l">Certificaciones</span></div>
-                <div class="stat reveal"><span class="stat-n">94%</span><span class="stat-l">Tecnicatura completada</span></div>
-                <div class="stat reveal"><span class="stat-n">12+</span><span class="stat-l">Tecnologías en el stack</span></div>
+                <div class="stat reveal"><span class="stat-n">94%</span><span class="stat-l">Tecnicatura</span></div>
+                <div class="stat reveal"><span class="stat-n">12+</span><span class="stat-l">Tecnologías</span></div>
             </div>
         </div>
     </section>
@@ -260,6 +413,7 @@
                         <span class="cl-val">agusunx.github.io/Portfolio ↗</span>
                     </a>
                 </div>
+                <a href="CV_Agustin_Navarro.pdf" download class="btn-cv-big">↓ Descargar CV completo</a>
             </div>
             <div class="contact-right reveal">
                 <form action="https://formspree.io/f/mkgnboqw" method="POST" class="cform" id="cform">
@@ -275,9 +429,7 @@
                         <label for="mensaje">Mensaje</label>
                         <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje..." rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary btn-full">
-                        Enviar mensaje <span>→</span>
-                    </button>
+                    <button type="submit" class="btn-primary btn-full">Enviar mensaje <span>→</span></button>
                     <p class="form-ok" id="formOk">¡Enviado! Te respondo pronto 👋</p>
                 </form>
             </div>
@@ -292,13 +444,12 @@
             <div class="flinks">
                 <a href="https://github.com/agusunx" target="_blank">GitHub</a>
                 <a href="mailto:agusunx@outlook.es">Email</a>
+                <a href="CV_Agustin_Navarro.pdf" download>CV</a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
 </body>
 </html>
 
