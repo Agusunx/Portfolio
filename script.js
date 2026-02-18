@@ -1,81 +1,176 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Efecto de aparición (fade-in y slide-up) para las secciones al hacer scroll
-    const sections = document.querySelectorAll('section');
+// ==========================================
+//  AGUSTÍN NAVARRO — Portfolio script.js
+// ==========================================
 
-    const fadeInOnScroll = () => {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const screenHeight = window.innerHeight;
+// ---- CURSOR PERSONALIZADO ----
+const cursor = document.getElementById('cursor');
+const follower = document.getElementById('cursorFollower');
 
-            // Si la sección está visible en la ventana (más del 15% de la altura de la pantalla)
-            if (sectionTop < screenHeight * 0.85 && sectionTop > -section.offsetHeight * 0.5) {
-                section.classList.add('visible');
-            } else {
-                // Opcional: Para resetear la animación si se sale de vista (menos común en portfolios)
-                // section.classList.remove('visible');
-            }
+if (cursor && follower && window.matchMedia('(hover: hover)').matches) {
+    let mx = 0, my = 0, fx = 0, fy = 0;
+
+    document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        cursor.style.left = mx + 'px';
+        cursor.style.top  = my + 'px';
+    });
+
+    (function animFollower() {
+        fx += (mx - fx) * 0.15;
+        fy += (my - fy) * 0.15;
+        follower.style.left = fx + 'px';
+        follower.style.top  = fy + 'px';
+        requestAnimationFrame(animFollower);
+    })();
+
+    // Efecto al pasar sobre links/buttons
+    document.querySelectorAll('a, button, .pcard, .cert, .si, .stat, .cl').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+            cursor.style.background = 'transparent';
+            cursor.style.border = '1px solid #c8f135';
         });
-    };
-
-    // Ejecutar al cargar y al hacer scroll
-    window.addEventListener('scroll', fadeInOnScroll);
-    fadeInOnScroll(); // Ejecutar al inicio para que las secciones en la vista inicial aparezcan
-
-
-    // 2. Destacar el enlace de navegación activo al hacer scroll
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    const highlightNavLink = () => {
-        let currentSectionId = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            // Ajustar el offset para que el enlace se active un poco antes de llegar al top de la sección
-            if (scrollY >= sectionTop - 100 && scrollY < sectionTop + sectionHeight - 100) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(currentSectionId)) {
-                link.classList.add('active');
-            }
-        });
-    };
-
-    // Ejecutar al cargar y al hacer scroll
-    window.addEventListener('scroll', highlightNavLink);
-    highlightNavLink(); // Ejecutar al inicio
-
-    // 3. Smooth scroll para los enlaces de ancla (ya lo hace el CSS, esto es un extra)
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Solo para enlaces internos (que empiezan con #)
-            if (this.hash !== '') {
-                e.preventDefault(); // Evita el comportamiento predeterminado del salto de ancla
-
-                const targetId = this.hash;
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    // Calcula la posición a la que scrolllear (ajustando por si hay un fixed header)
-                    const offsetTop = targetElement.offsetTop - (document.querySelector('header').offsetHeight || 0); 
-                    
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-
-                    // Cierra el menú hamburguesa si está abierto (solo si aplicas Bootstrap o un menú JS)
-                    // const navbarCollapse = document.getElementById('navbarNav');
-                    // if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                    //     new bootstrap.Collapse(navbarCollapse, { toggle: false }).hide();
-                    // }
-                }
-            }
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.background = '#c8f135';
+            cursor.style.border = 'none';
         });
     });
+}
+
+// ---- NAVBAR SCROLL ----
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
 });
+
+// ---- HAMBURGER / MOBILE MENU ----
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// ---- SCROLL REVEAL ----
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            // Staggered delay based on siblings
+            const siblings = [...entry.target.parentElement.children].filter(el => el.classList.contains('reveal'));
+            const idx = siblings.indexOf(entry.target);
+            entry.target.style.transitionDelay = (idx * 0.08) + 's';
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+// ---- ACTIVE NAV LINK ----
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+
+const activeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinks.forEach(l => l.style.color = '');
+            const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+            if (active) active.style.color = '#c8f135';
+        }
+    });
+}, { threshold: 0.4 });
+
+sections.forEach(s => activeObserver.observe(s));
+
+// ---- SMOOTH SCROLL NAV ----
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        const hash = link.getAttribute('href');
+        if (!hash.startsWith('#')) return;
+        e.preventDefault();
+        const target = document.querySelector(hash);
+        if (target) {
+            const offset = target.offsetTop - 80;
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+    });
+});
+
+// ---- CONTACT FORM ----
+const form   = document.getElementById('cform');
+const formOk = document.getElementById('formOk');
+
+if (form) {
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = 'Enviando...';
+        btn.disabled = true;
+
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                form.reset();
+                if (formOk) { formOk.classList.add('show'); }
+                btn.innerHTML = '¡Enviado! ✓';
+            } else {
+                throw new Error();
+            }
+        } catch {
+            btn.innerHTML = 'Error — intentá de nuevo';
+            btn.disabled = false;
+            setTimeout(() => { btn.innerHTML = orig; }, 3000);
+        }
+    });
+}
+
+// ---- TYPING EFFECT en hero role ----
+const roleEl = document.querySelector('.hero-role');
+if (roleEl) {
+    const phrases = [
+        'Junior Software Developer',
+        'Frontend Developer',
+        'JavaScript · React · Python',
+    ];
+    let pi = 0, ci = 0, deleting = false;
+
+    // Start after animation ends
+    setTimeout(() => {
+        roleEl.textContent = '';
+        function type() {
+            const current = phrases[pi];
+            if (!deleting) {
+                roleEl.textContent = current.slice(0, ++ci);
+                if (ci === current.length) {
+                    deleting = true;
+                    setTimeout(type, 2200);
+                    return;
+                }
+            } else {
+                roleEl.textContent = current.slice(0, --ci);
+                if (ci === 0) {
+                    deleting = false;
+                    pi = (pi + 1) % phrases.length;
+                }
+            }
+            setTimeout(type, deleting ? 35 : 65);
+        }
+        type();
+    }, 1400);
+}
