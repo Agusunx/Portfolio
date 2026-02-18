@@ -3,249 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agustín Navarro - Mi Portfolio de Programación</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    
+    <title>Agustín Navarro — Junior Software Developer</title>
+    <meta name="description" content="Portfolio de Agustín Navarro, desarrollador junior. HTML, CSS, JavaScript, React, Python, Node.js.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#inicio-section">Agustín Navarro</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio-section">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#proyectos-section">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre-mi-section">Sobre Mí</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacto-section">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- NAVBAR -->
+    <nav class="nav" id="nav">
+        <a href="#inicio" class="nav-logo">AN<span class="accent">.</span></a>
+        <ul class="nav-links">
+            <li><a href="#proyectos">01 Proyectos</a></li>
+            <li><a href="#stack">02 Stack</a></li>
+            <li><a href="#sobre-mi">03 Sobre mí</a></li>
+            <li><a href="#contacto">04 Contacto</a></li>
+        </ul>
+        <a href="https://github.com/agusunx" target="_blank" class="nav-github">GitHub ↗</a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <main class="container" style="margin-top: 80px;"> 
-        <section id="inicio-section">
-            <h2>¡Hola!</h2>
-            <p>Como <strong>Desarrollador Técnico en Programación</strong>, mi objetivo es construir soluciones web <strong>funcionales, intuitivas y visualmente atractivas</strong>.</p>
-        </section>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#proyectos" onclick="closeMobileMenu()"><em>01</em> Proyectos</a>
+        <a href="#stack" onclick="closeMobileMenu()"><em>02</em> Stack</a>
+        <a href="#sobre-mi" onclick="closeMobileMenu()"><em>03</em> Sobre mí</a>
+        <a href="#contacto" onclick="closeMobileMenu()"><em>04</em> Contacto</a>
+    </div>
 
-        <section id="proyectos-section">
-            <h2>Mis Proyectos Destacados</h2>
-            <p class="text-center">Explora las soluciones que he creado y las tecnologías que he dominado.</p>
-            <div class="row-projects">
-                <div class="proyecto-card">
-                    <img src="talentotechss-card-preview.jpg" alt="Miniatura TalentoTechss">
-                    <h3>E-commerce: Terapias Holísticas</h3>
-                    <p>Plataforma para ventas y gestión de productos de bienestar. Un sitio completo y funcional.</p>
-                    <a href="#proyecto-talentotechss-detalles">Ver Detalles</a>
-                </div>
-                
-                <div class="proyecto-card">
-                    <img src="seriesunx-card-preview.jpg.png" alt="Miniatura SerieSunx">
-                    <h3>UI/UX: Plataforma de Streaming</h3>
-                    <p>Prototipo de un servicio de video a demanda, enfocado en una experiencia de usuario fluida.</p>
-                    <a href="#proyecto-seriesunx-detalles">Ver Detalles</a>
-                </div>
-
-                <div class="proyecto-card">
-                    <img src="robotic.png" alt="Miniatura CodeRobotik">
-                    <h3>Plataforma Educativa: CodeRobotik</h3>
-                    <p>Sistema web para la gestión de alumnos, docentes y seminarios en un centro de robótica.</p>
-                    <a href="#proyecto-coderobotik-detalles">Ver Detalles</a>
-                </div>
-
-                <div class="proyecto-card">
-                    <img src="reddso.png" alt="Miniatura UnaHur Anti-Social Net">
-                    <h3>App Web: UnaHur Anti-Social Net</h3>
-                    <p>Aplicación web con React y backend para interacción social y gestión de publicaciones.</p>
-                    <a href="#proyecto-unahur-detalles">Ver Detalles</a>
-                </div>
-
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-word">DEV</div>
+        <div class="hero-inner">
+            <div class="hero-label">
+                <span class="label-dot"></span>
+                <span>Buenos Aires, Argentina</span>
+                <span class="label-sep">·</span>
+                <span class="label-available">Disponible para trabajar</span>
             </div>
-        </section>
-
-        <section id="proyecto-talentotechss-detalles" class="project-details-section">
-            <h1 class="text-center mb-4">TalentoTechss: E-commerce de Terapias Holísticas</h1>
-            <p class="lead text-center"><strong>E-commerce completo para Terapias Holísticas</strong>, enfocado en ventas y gestión online.</p>
-
-            <div class="project-image-container">
-                <img src="capturatech2.png" alt="Vista previa del proyecto TalentoTechss" class="img-fluid rounded shadow">
-                <small class="d-block text-center mt-2 text-muted">Diseño principal del e-commerce.</small>
+            <h1 class="hero-name">
+                <span class="rl">Agustín</span>
+                <span class="rl">Navarro<span class="accent">.</span></span>
+            </h1>
+            <p class="hero-role rf">Junior Software Developer</p>
+            <p class="hero-bio rf">Construyo interfaces <strong>funcionales y atractivas</strong>. Técnico en Programación por UNAHUR, con experiencia en proyectos reales de frontend y full stack.</p>
+            <div class="hero-ctas rf">
+                <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+                <a href="https://github.com/agusunx" target="_blank" class="btn-ghost">GitHub ↗</a>
+                <a href="mailto:agusunx@outlook.es" class="btn-ghost">Email ↗</a>
             </div>
+        </div>
+        <div class="scroll-hint">
+            <div class="scroll-line"></div>
+            <span>scroll</span>
+        </div>
+    </section>
 
-            <article class="project-article">
-                <h3>Mi Contribución</h3>
-                <p>Como <strong>desarrollador frontend principal</strong>, mis responsabilidades clave incluyeron:</p>
-                <ul>
-                    <li><strong>Maquetación HTML & Estilización CSS:</strong> Interfaz moderna y responsiva.</li>
-                    <li><strong>Funcionalidad Interactiva con JavaScript:</strong> Carrito dinámico con `localStorage`, manejo de formularios.</li>
-                    <li><strong>Uso de Bootstrap 5:</strong> Desarrollo ágil y compatibilidad multidispositivo.</li>
-                </ul>
+    <!-- PROYECTOS -->
+    <section class="section" id="proyectos">
+        <div class="sec-hd">
+            <span class="sec-num">01</span>
+            <div>
+                <h2 class="sec-title">Proyectos</h2>
+                <p class="sec-sub">Lo que construí</p>
+            </div>
+        </div>
 
-                <br>
+        <div class="projects-grid">
 
-                <h3>Tecnologías Clave</h3>
-                <ul>
-                    <li><strong>HTML5, CSS3, JavaScript (Vainilla JS), Bootstrap 5.</strong></li>
-                    <li><strong>Formspree, Google Fonts.</strong></li>
-                </ul>
-
-                <div class="mt-4 text-center">
-                    <a href="https://agusunx.github.io/TalentoTechss/index.html" target="_blank" class="btn">Ver Proyecto Online</a>
-                    <a href="https://github.com/Agusunx/TalentoTechss-main" target="_blank" class="btn btn-secondary">Ver Código en GitHub</a>
+            <article class="pcard reveal">
+                <div class="pcard-img">
+                    <img src="capturatech2.png" alt="TalentoTechss" loading="lazy">
+                    <div class="pcard-over">
+                        <a href="https://agusunx.github.io/TalentoTechss/index.html" target="_blank" class="btn-primary">Ver live ↗</a>
+                        <a href="https://github.com/Agusunx/TalentoTechss-main" target="_blank" class="btn-ghost-sm">Código</a>
+                    </div>
+                </div>
+                <div class="pcard-body">
+                    <div class="pcard-meta"><span class="ptype">E-Commerce</span><span class="pyear">2024</span></div>
+                    <h3>TalentoTechss</h3>
+                    <p>Plataforma de ventas para terapias holísticas. Carrito dinámico con localStorage, catálogo de productos y formulario de contacto integrado con Formspree.</p>
+                    <div class="ptags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
                 </div>
             </article>
-        </section>
 
-        <section id="proyecto-seriesunx-detalles" class="project-details-section">
-            <h1 class="text-center mb-4">SerieSunx: Prototipo de Plataforma de Streaming</h1>
-            <p class="lead text-center"><strong>Prototipo de streaming</strong> con énfasis en UI/UX y navegación fluida.</p>
-
-            <div class="project-image-container">
-                <img src="capturasunx.png" alt="Vista previa del proyecto SerieSunx" class="img-fluid rounded shadow">
-                <small class="d-block text-center mt-2 text-muted">Interfaz principal de la plataforma de streaming.</small>
-            </div>
-            
-            <article class="project-article">
-                <h3>Mi Rol</h3>
-                <p>Como <strong>desarrollador frontend</strong>, me enfoqué en diseño y maquetación:</p>
-                <ul>
-                    <li><strong>Diseño de UI/UX:</strong> Interfaz inmersiva.</li>
-                    <li><strong>Interactividad con JavaScript:</strong> Efectos visuales y navegación fluida.</li>
-                    <li><strong>Diseño Responsivo:</strong> Adaptación a cualquier dispositivo.</li>
-                </ul>
-
-                <br>
-
-                <h3>Tecnologías Utilizadas</h3>
-                <ul>
-                    <li><strong>HTML5, CSS3, JavaScript (Vainilla JS).</strong></li>
-                    <li><strong>Google Fonts.</strong></li>
-                </ul>
-
-                <div class="mt-4 text-center">
-                    <a href="https://agusunx.github.io/SerieSunx/#" target="_blank" class="btn">Ver Proyecto Online</a>
-                    <a href="https://github.com/Agusunx/SerieSunx" target="_blank" class="btn btn-secondary">Ver Código en GitHub</a>
+            <article class="pcard reveal">
+                <div class="pcard-img">
+                    <img src="capturasunx.png" alt="SerieSunx" loading="lazy">
+                    <div class="pcard-over">
+                        <a href="https://agusunx.github.io/SerieSunx/" target="_blank" class="btn-primary">Ver live ↗</a>
+                        <a href="https://github.com/Agusunx/SerieSunx" target="_blank" class="btn-ghost-sm">Código</a>
+                    </div>
+                </div>
+                <div class="pcard-body">
+                    <div class="pcard-meta"><span class="ptype">UI / UX</span><span class="pyear">2024</span></div>
+                    <h3>SerieSunx</h3>
+                    <p>Prototipo de plataforma de streaming con interfaz inmersiva, reproducción HTML5, biblioteca de contenido y navegación fluida entre títulos.</p>
+                    <div class="ptags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Video API</span></div>
                 </div>
             </article>
-        </section>
 
-        <section id="proyecto-coderobotik-detalles" class="project-details-section">
-            <h1 class="text-center mb-4">CodeRobotik: Plataforma de Gestión Educativa</h1>
-            <p class="lead text-center"><strong>Plataforma educativa</strong> para gestión de alumnos, docentes y seminarios.</p>
-
-            <div class="project-image-container">
-                <img src="roboticpag.png" alt="Vista previa del proyecto CodeRobotik" class="img-fluid rounded shadow">
-                <small class="d-block text-center mt-2 text-muted">Vista principal de la plataforma CodeRobotik.</small>
-            </div>
-
-            <article class="project-article">
-                <h3>Mi Contribución</h3>
-                <p>Como <strong>desarrollador frontend</strong>, mis responsabilidades clave incluyeron:</p>
-                <ul>
-                    <li><strong>Diseño de Interfaz:</strong> Páginas de login, paneles de alumno y docente, y formulario de seminarios.</li>
-                    <li><strong>Funcionalidad Interactiva con JavaScript:</strong> Lógica de autenticación, validación de formularios y redirección por roles.</li>
-                </ul>
-
-                <br>
-
-                <h3>Tecnologías Clave</h3>
-                <ul>
-                    <li><strong>HTML5, CSS3, JavaScript (Vainilla JS).</strong></li>
-                    <li><strong>Formularios HTML.</strong></li>
-                </ul>
-
-                <div class="mt-4 text-center">
-                    <a href="https://github.com/TuUsuario/NombreDelRepositorioCodeRobotik/blob/main/index.html" target="_blank" class="btn">Ver Proyecto (GitHub Pages o local)</a>
-                    <a href="https://github.com/TuUsuario/NombreDelRepositorioCodeRobotik" target="_blank" class="btn btn-secondary">Ver Código en GitHub</a>
+            <article class="pcard reveal">
+                <div class="pcard-img">
+                    <img src="roboticpag.png" alt="CodeRobotik" loading="lazy">
+                    <div class="pcard-over">
+                        <a href="https://github.com/agusunx" target="_blank" class="btn-primary">Ver código ↗</a>
+                    </div>
+                </div>
+                <div class="pcard-body">
+                    <div class="pcard-meta"><span class="ptype">Plataforma Educativa</span><span class="pyear">2024</span></div>
+                    <h3>CodeRobotik</h3>
+                    <p>Sistema de gestión para un centro de robótica educativa. Login con roles diferenciados, paneles para alumnos y docentes, y gestión de seminarios.</p>
+                    <div class="ptags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Roles</span></div>
                 </div>
             </article>
-        </section>
 
-        <section id="proyecto-unahur-detalles" class="project-details-section">
-            <h1 class="text-center mb-4">UnaHur Anti-Social Net: Aplicación Web con React y Backend</h1>
-            <p class="lead text-center"><strong>Simulación de red social (SPA)</strong> con React y backend, un proyecto grupal full stack.</p>
-
-            <div class="project-image-container">
-                <img src="redsocial.png" alt="Vista previa del proyecto UnaHur Anti-Social Net" class="img-fluid rounded shadow">
-                <small class="d-block text-center mt-2 text-muted">Interfaz principal de la aplicación social (captura).</small>
-            </div>
-
-            <article class="project-article">
-                <h3>Mi Contribución</h3>
-                <p>Este proyecto fue en <strong>colaboración con un equipo</strong>. Mi rol se centró en:</p>
-                <ul>
-                    <li><strong>Desarrollo Frontend con React.js:</strong> Componentes UI, rutas con `react-router-dom`, gestión de estado.</li>
-                    <li><strong>Lógica de Autenticación:</strong> Formularios y conexión a backend para login/registro.</li>
-                    <li><strong>Integración con Backend (Node.js):</strong> Conexión frontend-API para CRUD de datos.</li>
-                </ul>
-
-                <br>
-
-                <h3>Tecnologías Clave</h3>
-                <ul>
-                    <li><strong>Frontend:</strong> <strong>React.js</strong>, <strong>React Router DOM</strong>, JavaScript (JSX), HTML5, CSS3.</li>
-                    <li><strong>Backend:</strong> <strong>Node.js</strong> (Express.js).</li>
-                    <li><strong>Base de Datos.</strong></li>
-                </ul>
-
-                <div class="mt-4 text-center">
-                    <p class="text-muted"><em>Este proyecto no está desplegado online, se muestra a través de capturas y código fuente.</em></p>
-                    <a href="https://github.com/VaninaCejasElizabethOlson/UnaHur-Anti-Social-Net-Interfaz-de-Usuario" target="_blank" class="btn btn-secondary">Ver Código en GitHub</a>
+            <article class="pcard pcard-featured reveal">
+                <div class="pcard-img">
+                    <img src="redsocial.png" alt="UnaHur Anti-Social Net" loading="lazy">
+                    <div class="pcard-over">
+                        <a href="https://github.com/VaninaCejasElizabethOlson/UnaHur-Anti-Social-Net-Interfaz-de-Usuario" target="_blank" class="btn-primary">Ver código ↗</a>
+                    </div>
+                </div>
+                <div class="pcard-body">
+                    <div class="pcard-meta"><span class="ptype">Full Stack · Grupal</span><span class="pyear">2024</span></div>
+                    <h3>UnaHur Anti-Social Net</h3>
+                    <p>SPA de red social desarrollada en equipo. Frontend React con routing y gestión de estado; backend Node.js/Express con CRUD completo y autenticación.</p>
+                    <div class="ptags"><span>React.js</span><span>React Router</span><span>Node.js</span><span>Express</span><span>API REST</span></div>
                 </div>
             </article>
-        </section>
 
-        <section id="sobre-mi-section">
-            <h2>Conóceme Mejor</h2>
-            <p>Hola, soy Agustín, <strong>desarrollador frontend con 4 materias para terminar mi tecnicatura en programación</strong>.</p>
-            <ul>
-                <li>Mis lenguajes principales son <strong>HTML, CSS y JavaScript</strong>.</li>
-            </ul>
-        </section>
+        </div>
+    </section>
 
-        <section id="contacto-section">
-            <h2>Conversemos</h2>
-            <p>¿Tenés un proyecto en mente o querés saber más sobre mi trabajo? ¡Escribime!</p>
-            <form action="https://formspree.io/f/mkgnboqw" method="POST"> 
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label><br>
-                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Enviar Mensaje</button>
-            </form>
-        </section>
-    </main>
+    <!-- STACK -->
+    <section class="section sec-alt" id="stack">
+        <div class="sec-hd">
+            <span class="sec-num">02</span>
+            <div>
+                <h2 class="sec-title">Stack</h2>
+                <p class="sec-sub">Con qué trabajo</p>
+            </div>
+        </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Agustín Navarro. Todos los derechos reservados.</p>
+        <div class="stack-wrap">
+            <div class="stack-col reveal">
+                <h4 class="sc-title">Frontend</h4>
+                <div class="sc-items">
+                    <div class="si">HTML5</div>
+                    <div class="si">CSS3</div>
+                    <div class="si">JavaScript (ES6+)</div>
+                    <div class="si">React.js</div>
+                    <div class="si">React Router</div>
+                    <div class="si">Bootstrap</div>
+                    <div class="si">Responsive Design</div>
+                </div>
+            </div>
+            <div class="stack-col reveal">
+                <h4 class="sc-title">Backend & Datos</h4>
+                <div class="sc-items">
+                    <div class="si">Python</div>
+                    <div class="si">Node.js</div>
+                    <div class="si">Express.js</div>
+                    <div class="si">SQL básico</div>
+                    <div class="si">API REST</div>
+                    <div class="si">localStorage</div>
+                </div>
+            </div>
+            <div class="stack-col reveal">
+                <h4 class="sc-title">Herramientas</h4>
+                <div class="sc-items">
+                    <div class="si">Git / GitHub</div>
+                    <div class="si">VS Code</div>
+                    <div class="si">GitHub Pages</div>
+                    <div class="si">Formspree</div>
+                    <div class="si">Figma (básico)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="certs-section reveal">
+            <h3 class="certs-title">Certificaciones</h3>
+            <div class="certs-grid">
+                <div class="cert"><span class="cert-org">Cisco Networking Academy</span><span class="cert-name">Introducción a la Ciberseguridad</span></div>
+                <div class="cert"><span class="cert-org">Kaggle</span><span class="cert-name">Intro to SQL</span></div>
+                <div class="cert"><span class="cert-org">EF SET</span><span class="cert-name">Certificado de Inglés</span></div>
+                <div class="cert"><span class="cert-org">ScrumStudy</span><span class="cert-name">Scrum Fundamentals Certified (SFC™)</span></div>
+                <div class="cert"><span class="cert-org">Amazon — AWS Educate</span><span class="cert-name">Introduction to Cloud 101</span></div>
+                <div class="cert"><span class="cert-org">Talento Tech — Programa Nacional</span><span class="cert-name">Frontend JavaScript</span></div>
+                <div class="cert"><span class="cert-org">UNAHUR</span><span class="cert-name">Python Inicial · Inteligencia Artificial</span></div>
+                <div class="cert"><span class="cert-org">Platzi</span><span class="cert-name">Curso Básico de Programación</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="section" id="sobre-mi">
+        <div class="sec-hd">
+            <span class="sec-num">03</span>
+            <div>
+                <h2 class="sec-title">Sobre mí</h2>
+                <p class="sec-sub">Quién soy</p>
+            </div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p>Soy <strong>Agustín Navarro</strong>, desarrollador junior de Buenos Aires con <strong>18 de 19 materias aprobadas</strong> en la Tecnicatura en Programación de <strong>UNAHUR</strong>.</p>
+                <p>Me especializo en el <strong>frontend</strong> — crear interfaces limpias, funcionales y pensadas en el usuario. Construí proyectos reales que van desde e-commerces hasta aplicaciones full stack con React y Node.js.</p>
+                <p>Me desempeñé como <strong>alumno colaborador en UNAHUR</strong>, apoyando a estudiantes en lógica de programación y estructuras de datos. Me gusta explicar lo que entiendo.</p>
+                <p>Busco mi primera oportunidad profesional en IT para seguir creciendo en cualquier rol relacionado a programación.</p>
+                <div class="about-ctas">
+                    <a href="mailto:agusunx@outlook.es" class="btn-primary">Escribime</a>
+                    <a href="https://github.com/agusunx" target="_blank" class="btn-ghost">GitHub ↗</a>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat reveal"><span class="stat-n">4</span><span class="stat-l">Proyectos terminados</span></div>
+                <div class="stat reveal"><span class="stat-n">8+</span><span class="stat-l">Certificaciones</span></div>
+                <div class="stat reveal"><span class="stat-n">94%</span><span class="stat-l">Tecnicatura completada</span></div>
+                <div class="stat reveal"><span class="stat-n">5+</span><span class="stat-l">Tecnologías dominadas</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section sec-alt" id="contacto">
+        <div class="sec-hd">
+            <span class="sec-num">04</span>
+            <div>
+                <h2 class="sec-title">Contacto</h2>
+                <p class="sec-sub">Hablemos</p>
+            </div>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-left reveal">
+                <p class="contact-intro">¿Tenés un proyecto en mente o querés sumarme a tu equipo? <strong>Escribime.</strong></p>
+                <div class="contact-links">
+                    <a href="mailto:agusunx@outlook.es" class="cl">
+                        <span class="cl-label">Email</span>
+                        <span class="cl-val">agusunx@outlook.es ↗</span>
+                    </a>
+                    <a href="https://github.com/agusunx" target="_blank" class="cl">
+                        <span class="cl-label">GitHub</span>
+                        <span class="cl-val">github.com/agusunx ↗</span>
+                    </a>
+                    <a href="tel:+5491134485295" class="cl">
+                        <span class="cl-label">Teléfono</span>
+                        <span class="cl-val">11 3448-5295</span>
+                    </a>
+                    <a href="https://agusunx.github.io/Portfolio" target="_blank" class="cl">
+                        <span class="cl-label">Portfolio</span>
+                        <span class="cl-val">agusunx.github.io/Portfolio ↗</span>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-right reveal">
+                <form action="https://formspree.io/f/mkgnboqw" method="POST" class="cform" id="cform">
+                    <div class="cfield">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="cfield">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="cfield">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="¿En qué puedo ayudarte?" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">
+                        Enviar mensaje <span>→</span>
+                    </button>
+                    <p class="form-ok" id="formOk">¡Enviado! Te respondo pronto 👋</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="fl">Agustín Navarro<span class="accent">.</span></p>
+            <p class="fc">© 2026 — Diseñado y desarrollado por AN</p>
+            <div class="flinks">
+                <a href="https://github.com/agusunx" target="_blank">GitHub</a>
+                <a href="mailto:agusunx@outlook.es">Email</a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
